@@ -159,8 +159,8 @@ runs:
             exit 1
           fi
           # Look for the following strings in the html
-          STRING_A_COUNT=$(cat __compare.html | grep -c "<strong>$LATEST_TAG</strong> and")
-          STRING_B_COUNT=$(cat __compare.html | grep -c "<strong>$GITHUB_SHA</strong> are identical.")
+          STRING_A_COUNT=$(cat __compare.html | grep -c "<strong>$LATEST_TAG</strong> and") || true
+          STRING_B_COUNT=$(cat __compare.html | grep -c "<strong>$GITHUB_SHA</strong> are identical.") || true
           if [[ $STRING_A_COUNT != "0" ]] && [[ $STRING_B_COUNT != "0" ]]; then
             echo "Not patch releasing because there are no actual changes to release"
             DO_RELEASE=0
