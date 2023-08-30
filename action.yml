@@ -170,7 +170,6 @@ runs:
         echo "do_release output is $DO_RELEASE"
         echo "do_release=$DO_RELEASE" >> $GITHUB_OUTPUT
 
-    steps:
     - name: Delete temporary files
       if: always()
       shell: bash
